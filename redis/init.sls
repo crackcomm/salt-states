@@ -1,8 +1,8 @@
 
-redis:
+redis-server:
   service:
     - running
     - require:
-      - pkg: redis
+      - pkg: redis-server
   pkg:
     - installed
