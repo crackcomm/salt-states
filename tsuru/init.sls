@@ -7,7 +7,7 @@ include:
   - mongodb-10gen
   - hipache
 
-mongodb-10gen:
+mongo:
   service:
     - running
     - enable: True
