@@ -13,3 +13,10 @@ mongo:
     - enable: True
     - require:
       - pkg: mongodb-10gen
+
+git-daemon:
+  service:
+    - running
+    - enable: True
+    - require:
+      - pkg: git-daemon-run
