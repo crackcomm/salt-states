@@ -1,0 +1,6 @@
+
+base:
+  '*':
+    - core
+  'tsuru*':
+    - tsuru
