@@ -1,4 +1,9 @@
 
+include:
+  - mongodb-10gen
+  - git-daemon
+  - docker
+
 apt-tsuru-repo:
   cmd.run:
     - user: root
@@ -47,7 +52,7 @@ docker:
     - require:
       - pkg: lxc-docker
 
-mongo:
+mongodb:
   service:
     - running
     - enable: True
