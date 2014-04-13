@@ -2,7 +2,7 @@
 apt-add-tsuru:
   cmd.run:
     - user: root
-    - name: apt-add-repository -y ppa:tsuru/ppa && apt-get update
+    - name: apt-add-repository -qqy ppa:tsuru/ppa && apt-get update -qqy
 
 gandalf-server:
   pkg:
