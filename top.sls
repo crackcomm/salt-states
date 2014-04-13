@@ -5,7 +5,7 @@ base:
   'mongo*':
     - mongodb-10gen
   'docker*':
-    - hipache
+    - docker
     - tsuru.docker
   'tsuru*':
     - gandalf
