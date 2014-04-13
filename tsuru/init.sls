@@ -1,12 +1,4 @@
 
-include:
-  - beanstalkd
-  - redis
-  - git-daemon
-  - gandalf
-  - mongodb-10gen
-  - hipache
-
 apt-tsuru-repo:
   cmd.run:
     - user: root
