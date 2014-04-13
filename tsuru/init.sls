@@ -3,6 +3,7 @@ include:
   - mongodb-10gen
   - git-daemon
   - docker
+  - tsuru.platforms
 
 apt-tsuru-repo:
   cmd.run:
@@ -26,24 +27,7 @@ enable-tsuru:
     - user: root
     - require:
       - pkg: tsuru-server
-
-tsuru-ssh-agent:
-  service:
-    - running
-    - require:
-      - cmd: enable-tsuru
-
-tsuru-server-api:
-  service:
-    - running
-    - require:
-      - cmd: enable-tsuru
-
-tsuru-server-collector:
-  service:
-    - running
-    - require:
-      - cmd: enable-tsuru
+      - cmd: tsuru-platforms
 
 docker:
   service:
@@ -65,3 +49,21 @@ git-daemon:
     - enable: True
     - require:
       - pkg: git-daemon-run
+
+tsuru-ssh-agent:
+  service:
+    - running
+    - require:
+      - cmd: enable-tsuru
+
+tsuru-server-api:
+  service:
+    - running
+    - require:
+      - cmd: enable-tsuru
+
+tsuru-server-collector:
+  service:
+    - running
+    - require:
+      - cmd: enable-tsuru
