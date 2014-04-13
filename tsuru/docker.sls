@@ -2,6 +2,13 @@
 include:
   - docker
 
+docker:
+  service:
+    - running
+    - enable: True
+    - require:
+      - pkg: lxc-docker
+
 tsuru-platforms:
   file:
     - managed

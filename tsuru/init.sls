@@ -2,13 +2,11 @@
 include:
   - mongodb-10gen
   - git-daemon
-  - docker
-  - tsuru.platforms
 
 apt-tsuru-repo:
   cmd.run:
     - user: root
-    - name: apt-add-repository -y ppa:tsuru/lvm2
+    - name: apt-add-repository -y ppa:tsuru/ppa && apt-add-repository -y ppa:tsuru/lvm2
 
 tsuru-server:
   file:
@@ -28,20 +26,6 @@ enable-tsuru:
     - require:
       - pkg: tsuru-server
       - cmd: tsuru-platforms
-
-docker:
-  service:
-    - running
-    - enable: True
-    - require:
-      - pkg: lxc-docker
-
-mongodb:
-  service:
-    - running
-    - enable: True
-    - require:
-      - pkg: mongodb-10gen
 
 git-daemon:
   service:

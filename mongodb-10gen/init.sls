@@ -1,3 +1,4 @@
+
 mongodb-10gen:
 {% if grains['os'] == 'Ubuntu' %}
   cmd.run:
@@ -19,3 +20,10 @@ mongodb-10gen:
   pkg:
     - installed
     - refresh: True
+
+mongodb:
+  service:
+    - running
+    - enable: True
+    - require:
+      - pkg: mongodb-10gen

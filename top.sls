@@ -2,10 +2,14 @@
 base:
   '*':
     - core
-  'tsuru*':
+  'mongo*':
     - mongodb-10gen
-    - hipache
+  'docker*':
+    - tsuru.docker
+  'tsuru*':
     - gandalf
     - git-daemon
+    - tsuru
+    - hipache
     - redis
     - beanstalkd
