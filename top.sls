@@ -8,8 +8,8 @@ base:
     - docker
     - tsuru.docker
   'tsuru*':
-    - gandalf
     - git-daemon
+    - gandalf
     - tsuru
     - redis
     - beanstalkd
