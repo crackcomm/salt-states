@@ -5,11 +5,11 @@ base:
   'mongo*':
     - mongodb-10gen
   'docker*':
+    - hipache
     - tsuru.docker
   'tsuru*':
     - gandalf
     - git-daemon
     - tsuru
-    - hipache
     - redis
     - beanstalkd
