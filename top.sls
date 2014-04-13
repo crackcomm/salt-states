@@ -3,4 +3,9 @@ base:
   '*':
     - core
   'tsuru*':
-    - tsuru
+    - mongodb-10gen
+    - hipache
+    - gandalf
+    - git-daemon
+    - redis
+    - beanstalkd

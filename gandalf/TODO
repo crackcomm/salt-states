@@ -1,4 +1,0 @@
-
-include git daemon
-
-service running
