@@ -40,6 +40,13 @@ tsuru-server-collector:
     - require:
       - cmd: enable-tsuru
 
+docker:
+  service:
+    - running
+    - enable: True
+    - require:
+      - pkg: lxc-docker
+
 mongo:
   service:
     - running
