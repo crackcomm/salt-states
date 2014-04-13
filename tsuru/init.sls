@@ -1,8 +1,4 @@
 
-include:
-  - mongodb-10gen
-  - git-daemon
-
 apt-tsuru-repo:
   cmd.run:
     - user: root
@@ -26,13 +22,6 @@ enable-tsuru:
     - require:
       - pkg: tsuru-server
       - cmd: tsuru-platforms
-
-git-daemon:
-  service:
-    - running
-    - enable: True
-    - require:
-      - pkg: git-daemon-run
 
 tsuru-ssh-agent:
   service:

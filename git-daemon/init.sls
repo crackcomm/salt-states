@@ -19,3 +19,10 @@ git-daemon-run:
     - makedirs: True
   pkg:
     - installed
+
+git-daemon:
+  service:
+    - running
+    - enable: True
+    - require:
+      - pkg: git-daemon-run
