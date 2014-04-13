@@ -20,3 +20,11 @@ lxc-docker:
   pkg.installed:
     - require:
       - file: /etc/apt/sources.list.d/docker.list
+
+
+docker-config:
+  file:
+    - managed
+    - name: /etc/default/docker
+    - source: salt://docker/docker.conf
+    - skip_verify: True
