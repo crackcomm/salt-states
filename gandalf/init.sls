@@ -4,6 +4,12 @@ apt-tsuru-ppa:
     - user: root
     - name: apt-add-repository ppa:tsuru/ppa -y && apt-get update -qqy
 
+/etc/gandalf.conf:
+  file:
+    - managed
+    - source: salt://gandalf/gandalf.conf
+    - skip_verify: True
+
 gandalf-server:
   pkg:
     - installed

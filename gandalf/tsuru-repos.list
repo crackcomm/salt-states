@@ -1,5 +1,0 @@
-
-deb http://ppa.launchpad.net/tsuru/lvm2/ubuntu precise main
-deb-src http://ppa.launchpad.net/tsuru/lvm2/ubuntu precise main
-deb http://ppa.launchpad.net/tsuru/ppa/ubuntu precise main
-deb-src http://ppa.launchpad.net/tsuru/ppa/ubuntu precise main

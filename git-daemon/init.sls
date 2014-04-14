@@ -24,6 +24,9 @@ git-daemon-run:
   file.symlink:
     - user: root
     - target: /lib/init/upstart-job
+  cmd.run:
+    - user: root
+    - name: rm -rf /etc/{service,sv}/git-daemon
 
 /etc/init/git-daemon.conf:
   file:
