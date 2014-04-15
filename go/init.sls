@@ -20,3 +20,12 @@ golang:
     - user: root
     - target: /usr/local/go/bin/go
     - force: True
+
+set-gopath:
+  file.directory:
+    - name: /usr/local/src/src
+    - makedirs: True
+  cmd.run:
+    - user: root
+    - name: echo "GOPATH=/usr/local/src/go" >> /etc/environment
+    - unless: cat /etc/environment | grep "GOPATH"

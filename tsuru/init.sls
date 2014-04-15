@@ -1,19 +1,9 @@
 
-apt-tsuru-repo:
-  cmd.run:
-    - user: root
-    - name: apt-add-repository -y ppa:tsuru/ppa && apt-add-repository -y ppa:tsuru/lvm2
-
-tsuru-server:
-  file:
-    - managed
-    - name: /etc/tsuru/tsuru.conf
-    - source: salt://tsuru/tsuru.conf
-    - skip_verify: True
-  pkg:
-    - installed
-    - require:
-      - cmd: apt-tsuru-repo
+include:
+  - tsuru.install
+  - tsuru.config
+  - tsuru.platforms
+  - tsuru.ssh-agent
 
 enable-tsuru:
   cmd.run:
@@ -21,13 +11,6 @@ enable-tsuru:
     - user: root
     - require:
       - pkg: tsuru-server
-      - cmd: tsuru-platforms
-
-tsuru-ssh-agent:
-  service:
-    - running
-    - require:
-      - cmd: enable-tsuru
 
 tsuru-server-api:
   service:

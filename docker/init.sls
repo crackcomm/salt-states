@@ -1,4 +1,3 @@
-{% set DOCKER_HOST = '127.0.0.1:4243' %}
 
 apt-tsuru-lvm2:
   cmd.run:
@@ -25,14 +24,13 @@ lxc-docker:
 docker-config:
   cmd.run:
     - user: root
-    - name: echo "export DOCKER_HOST={{DOCKER_HOST}}" >> ~/.bashrc
-    - unless: cat ~/.bashrc | grep "DOCKER_HOST={{DOCKER_HOST}}"
+    - name: echo "DOCKER_HOST=127.0.0.1:4243" >> /etc/environment
+    - unless: cat /etc/environment | grep "DOCKER_HOST=127.0.0.1:4243"
   file:
     - managed
     - name: /etc/default/docker
     - source: salt://docker/docker.conf
-    - context:
-      DOCKER_HOST: {{DOCKER_HOST}}
+    - template: jinja
     - skip_verify: True
 
 docker:

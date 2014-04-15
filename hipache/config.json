@@ -1,0 +1,11 @@
+{
+    "server": {
+        "accessLog": "/var/log/hipache.log",
+        "port": 80,
+        "workers": 1,
+        "maxSockets": 100,
+        "deadBackendTTL": 30
+    },
+    "redisHost": "{{REDIS_IP}}",
+    "redisPort": 6379
+}

@@ -2,14 +2,21 @@
 base:
   '*':
     - core
-  'mongo*':
-    - mongodb-10gen
-  'docker*':
-    - docker
-    - tsuru.docker
   'tsuru*':
-    - gandalf
+    # Tsuru
+    - tsuru
+    # Provisioning
+    - docker
+    - tsuru.platforms
+    # HTTP proxy
+    - hipache
+    # Git
     - git-daemon
+    - gandalf
+    - tsuru.git
+    # Queues
     - beanstalkd
     - redis
-    - tsuru
+    # MongoDB
+    - mongodb-10gen
+    # or use mongolab
