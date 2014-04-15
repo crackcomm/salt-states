@@ -18,7 +18,7 @@ mongodb-clients:
 # Inserts platforms to mongodb
 tsuru-platforms:
   cmd.run:
-    - name: cat /etc/tsuru/platforms-setup.js | mongo ds039737.mongolab.com:39737/tsuru -u tsuru-admin -p m0ir9ehynf
+    - name: cat /etc/tsuru/platforms-setup.js | mongo tsuru
     - require:
       - file: /etc/tsuru/platforms-setup.js
       - pkg: mongodb-clients
