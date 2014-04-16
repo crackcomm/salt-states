@@ -15,17 +15,20 @@ golang:
     - if_missing: /usr/local/go
     - tar_options: z
 
-/usr/local/bin/go:
-  file.symlink:
+goroot:
+  cmd.run:
     - user: root
-    - target: /usr/local/go/bin/go
-    - force: True
+    - name: echo "GOROOT=/usr/local/go" >> /etc/environment
+    - unless: cat /etc/environment | grep "GOROOT"
 
-set-gopath:
+gopath:
   file.directory:
-    - name: /usr/local/src/src
+    - name: /usr/local/src/go
     - makedirs: True
   cmd.run:
     - user: root
-    - name: echo "GOPATH=/usr/local/src/go" >> /etc/environment
+    - name: echo "GOPATH=/usr/local/src/go" >> /etc/environment &&
+            echo "PATH=\${GOROOT}/bin:\${GOPATH}/bin:\${PATH}" >> /etc/environment
     - unless: cat /etc/environment | grep "GOPATH"
+    - require:
+      - cmd: goroot
